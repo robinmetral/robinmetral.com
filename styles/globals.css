@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: "Bitter";
+    font-weight: 300;
+    src: url(/fonts/bitter-light.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-family: "Bitter";
+    font-weight: 900;
+    src: url(/fonts/bitter-black.woff2) format("woff2");
+  }
+}

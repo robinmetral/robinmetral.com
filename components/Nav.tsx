@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const NAV_ITEMS = [
   {
-    name: "Home",
+    name: "About",
     url: "/",
   },
   {
@@ -13,12 +13,14 @@ const NAV_ITEMS = [
 
 export default function Nav() {
   return (
-    <nav>
-      <ul>
+    <nav className="mb-10 bg-gray-800 text-xl">
+      <ul className="max-w-xl m-auto flex flex-row">
         {NAV_ITEMS.map(({ name, url }) => (
           <li key={name}>
             <Link href={url}>
-              <a>{name}</a>
+              <a className="block p-4 -ml-4 hover:text-yellow-400 focus:text-yellow-400">
+                {name}
+              </a>
             </Link>
           </li>
         ))}

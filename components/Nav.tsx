@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 const NAV_ITEMS = [
   {
@@ -7,23 +8,32 @@ const NAV_ITEMS = [
   },
   {
     name: "Newsletter",
-    url: "https://buttondown.email/robinmetral/",
+    url: "/newsletter",
   },
 ];
 
 export default function Nav() {
+  const { asPath } = useRouter();
+
   return (
-    <nav className="mb-10 bg-gray-800 text-xl">
-      <ul className="max-w-xl m-auto flex flex-row">
-        {NAV_ITEMS.map(({ name, url }) => (
-          <li key={name}>
-            <Link href={url}>
-              <a className="block p-4 -ml-4 hover:text-yellow-400 focus:text-yellow-400">
-                {name}
-              </a>
-            </Link>
-          </li>
-        ))}
+    <nav className="bg-gray-800">
+      <ul className="max-w-3xl m-auto px-2 h-12 flex flex-row items-center">
+        {NAV_ITEMS.map(({ name, url }) => {
+          const isActive = asPath === url;
+          return (
+            <li key={name}>
+              <Link href={url}>
+                <a
+                  className={`block px-2 py-1 rounded-sm mr-2 hover:bg-gray-600 focus:bg-gray-600 ${
+                    isActive ? "bg-gray-700" : ""
+                  }`}
+                >
+                  {name}
+                </a>
+              </Link>
+            </li>
+          );
+        })}
       </ul>
     </nav>
   );

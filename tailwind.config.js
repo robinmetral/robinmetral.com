@@ -6,6 +6,9 @@ module.exports = {
       fontFamily: {
         bitter: ["Bitter", "serif"],
       },
+      screens: {
+        xs: "415px",
+      },
     },
   },
   variants: {

@@ -1,10 +1,10 @@
 export default function Home() {
   return (
-    <main className="max-w-xl m-auto text-xl">
-      <h1 className="text-9xl font-black mb-4">
+    <>
+      <h1 className="text-4xl md:text-8xl font-black mb-4">
         Hi<span className="text-yellow-400">.</span>
       </h1>
-      <p className="text-xl font-light mb-6">
+      <p className="mb-4">
         My name is{" "}
         <a
           href="https://twitter.com/robinmetral"
@@ -14,9 +14,7 @@ export default function Home() {
         </a>
         .
       </p>
-      <p className="text-xl font-light mb-6">
-        I'm redesigning my website (again).
-      </p>
-    </main>
+      <p>I'm redesigning my website (again).</p>
+    </>
   );
 }

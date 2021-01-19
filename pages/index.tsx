@@ -1,28 +1,17 @@
-import Head from "next/head";
+import Link from "../components/Link";
 
 export default function Home() {
   return (
     <>
-      <Head>
-        <title>Robin Métral</title>
-      </Head>
-      <main className="flex flex-col min-h-screen items-center justify-center bg-gray-900 text-gray-100 font-bitter">
-        <div className="max-w-xl p-6">
-          <h1 className="text-9xl font-black mb-4">
-            Hi<span className="text-yellow-400">.</span>
-          </h1>
-          <p className="text-xl font-light mb-6">
-            My name is{" "}
-            <a href="https://twitter.com/robinmetral" className="underline">
-              Robin
-            </a>
-            .
-          </p>
-          <p className="text-xl font-light mb-6">
-            I'm redesigning my website (again).
-          </p>
-        </div>
-      </main>
+      <h1 className="text-6xl md:text-8xl font-black mb-4">
+        Hi<span className="text-yellow-400">.</span>
+      </h1>
+      <p className="mb-4">My name is Robin.</p>
+      <p>
+        I'm redesigning my website (again). For updates, you can subscribe to my{" "}
+        <Link href="/newsletter">newsletter</Link> or follow me on{" "}
+        <Link href="https://twitter.com/robinmetral">Twitter</Link>.
+      </p>
     </>
   );
 }

@@ -14,6 +14,10 @@ export default function Books({
   return (
     <>
       <Heading>Books</Heading>
+      <p className="mb-4">
+        Congrats,you found the Books page! Unfortunately though, it's still
+        under construction. Come back soon!
+      </p>
       <ul>
         {books.map(({ frontMatter, slug }) => (
           <li key={slug}>

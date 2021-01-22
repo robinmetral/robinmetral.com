@@ -10,10 +10,6 @@ const NAV_ITEMS = [
     name: "Newsletter",
     url: "/newsletter",
   },
-  {
-    name: "Books",
-    url: "/books",
-  },
 ];
 
 export default function Nav() {

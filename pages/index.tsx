@@ -1,11 +1,12 @@
+import Heading from "../components/Heading";
 import Link from "../components/Link";
 
 export default function Home() {
   return (
     <>
-      <h1 className="text-6xl md:text-8xl font-black mb-4">
+      <Heading>
         Hi<span className="text-yellow-400">.</span>
-      </h1>
+      </Heading>
       <p className="mb-4">My name is Robin.</p>
       <p>
         I'm redesigning my website (again). For updates, you can subscribe to my{" "}

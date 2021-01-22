@@ -1,4 +1,6 @@
 import { useState, useRef, FormEvent } from "react";
+
+import Heading from "../components/Heading";
 import Link from "../components/Link";
 
 export default function Newsletter() {
@@ -30,7 +32,7 @@ export default function Newsletter() {
 
   return (
     <>
-      <h1 className="text-6xl md:text-8xl font-black mb-4">Newsletter</h1>
+      <Heading>Newsletter</Heading>
       <p className="mb-4">I write a loosely defined weekly newsletter.</p>
       <p className="mb-4">
         Previous issues have featured thoughts from the{" "}

@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import Heading from "../../components/Heading";
 import {
   getBooksSlugs,
@@ -7,14 +9,22 @@ import {
 } from "../../lib/books";
 
 export default function Book({
-  book,
+  book: { frontMatter, html },
 }: {
   book: { html: string; frontMatter: FrontMatter };
 }) {
+  const imageUrl = `https://covers.openlibrary.org/b/isbn/${frontMatter.isbn}-M.jpg`;
   return (
     <>
-      <Heading>{book.frontMatter.title}</Heading>
-      <div dangerouslySetInnerHTML={{ __html: book.html }} />
+      <Heading>{frontMatter.title}</Heading>
+      <div className="flex flex-row my-6 gap-4">
+        <Image src={imageUrl} width={180} height={275} />
+        <ul>
+          <li>{frontMatter.author}</li>
+          <li>{frontMatter.publishedYear}</li>
+        </ul>
+      </div>
+      <div dangerouslySetInnerHTML={{ __html: html }} />
     </>
   );
 }

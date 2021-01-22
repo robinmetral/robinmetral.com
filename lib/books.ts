@@ -21,7 +21,7 @@ export type FrontMatter = {
   title?: string;
   author?: string;
   publishedYear?: number;
-  isbn?: number;
+  isbn?: string;
   status?: "read" | "reading" | "to-read";
   shelves?: string[];
   rating?: number;

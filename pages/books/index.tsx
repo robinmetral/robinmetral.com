@@ -16,7 +16,7 @@ export default function Books({
       <Heading>Books</Heading>
       <ul>
         {books.map(({ frontMatter, slug }) => (
-          <li>
+          <li key={slug}>
             <Link href={`/books/${slug}`}>{frontMatter.title}</Link>
           </li>
         ))}

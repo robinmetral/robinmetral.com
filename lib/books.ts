@@ -17,27 +17,35 @@ export async function markdownToHtml(markdown: string): Promise<string> {
   return result.toString();
 }
 
-export type FrontMatter = {
+type FrontMatter = {
   title?: string;
   author?: string;
   publishedYear?: number;
   isbn?: string;
-  status?: "read" | "reading" | "to-read";
+  status?: "read" | "to-read";
   shelves?: string[];
   rating?: number;
   finishedDate?: string;
 };
 
+export interface BookMetadata extends Omit<FrontMatter, "finishedDate"> {
+  finishedDate?: number; // milliseconds since epoch
+}
+
 export function getBookBySlug(
   slug: string
-): { markdown: string; frontMatter: FrontMatter } {
+): { markdown: string; frontMatter: BookMetadata } {
   const fullPath = join(booksDirectory, `${slug}.md`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const { content, data }: { content: string; data: FrontMatter } = matter(
     fileContents
   );
+  const finishedDate = new Date(data.finishedDate).valueOf(); // .valueOf() is a TS fix
   return {
     markdown: content,
-    frontMatter: data,
+    frontMatter: {
+      ...data,
+      finishedDate,
+    },
   };
 }

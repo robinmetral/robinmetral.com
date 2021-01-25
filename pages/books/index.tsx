@@ -1,13 +1,13 @@
 import Link from "../../components/Link";
 import Heading from "../../components/Heading";
-import { getBooksSlugs, getBookBySlug, FrontMatter } from "../../lib/books";
+import { getBooksSlugs, getBookBySlug, BookMetadata } from "../../lib/books";
 
 export default function Books({
   books,
 }: {
   books: {
     markdown: string;
-    frontMatter: FrontMatter;
+    frontMatter: BookMetadata;
     slug: string;
   }[];
 }) {
@@ -18,10 +18,20 @@ export default function Books({
         Congrats,you found the Books page! Unfortunately though, it's still
         under construction. Come back soon!
       </p>
+      <p className="mb-4">
+        You can also subscribe to updates via RSS! Here's the{" "}
+        <Link href="/books/feed.xml">feed link</Link> to paste in your favorite
+        RSS reader.
+      </p>
       <ul>
         {books.map(({ frontMatter, slug }) => (
           <li key={slug}>
-            <Link href={`/books/${slug}`}>{frontMatter.title}</Link>
+            {new Date(frontMatter.finishedDate).toLocaleDateString("en-GB", {
+              year: "numeric",
+              month: "short",
+              day: "numeric",
+            })}
+            : <Link href={`/books/${slug}`}>{frontMatter.title}</Link>
           </li>
         ))}
       </ul>
@@ -37,9 +47,12 @@ export async function getStaticProps() {
       return { markdown, frontMatter, slug };
     })
   );
+  const booksRead = books
+    .filter((book) => book.frontMatter.status === "read")
+    .sort((a, b) => b.frontMatter.finishedDate - a.frontMatter.finishedDate);
   return {
     props: {
-      books,
+      books: booksRead,
     },
   };
 }

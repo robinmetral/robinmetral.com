@@ -14,27 +14,35 @@ export default function Books({
   return (
     <>
       <Heading>Books</Heading>
-      <p className="mb-4">
-        Congrats,you found the Books page! Unfortunately though, it's still
-        under construction. Come back soon!
-      </p>
-      <p className="mb-4">
-        You can also subscribe to updates via RSS! Here's the{" "}
-        <Link href="/books/feed.xml">feed link</Link> to paste in your favorite
+      <p className="mb-4">Here I track the books I read.</p>
+      <p className="mb-10">
+        If you'd like, you can subscribe to updates on this page via RSS. Here's
+        the <Link href="/books/feed.xml">link</Link> to paste in your favorite
         RSS reader.
       </p>
-      <ul>
-        {books.map(({ frontMatter, slug }) => (
-          <li key={slug}>
-            {new Date(frontMatter.finishedDate).toLocaleDateString("en-GB", {
-              year: "numeric",
-              month: "short",
-              day: "numeric",
-            })}
-            : <Link href={`/books/${slug}`}>{frontMatter.title}</Link>
-          </li>
-        ))}
+      <Heading level="2">2021</Heading>
+      <ul className="mb-10 list-disc list-inside">
+        {books.map(({ markdown, frontMatter, slug }) => {
+          const hasReview: boolean = markdown.length > 0;
+          return (
+            <li key={slug}>
+              {new Date(frontMatter.finishedDate).toLocaleDateString("en-GB", {
+                month: "numeric",
+                day: "numeric",
+              })}
+              :{" "}
+              {hasReview ? (
+                <Link href={`/books/${slug}`}>{frontMatter.title}</Link>
+              ) : (
+                frontMatter.title
+              )}{" "}
+              ({frontMatter.author})
+            </li>
+          );
+        })}
       </ul>
+      <Heading level="2">2020</Heading>
+      <p>I'm still importing earlier reads and reviews. Come back soon!</p>
     </>
   );
 }
@@ -48,7 +56,7 @@ export async function getStaticProps() {
     })
   );
   const booksRead = books
-    .filter((book) => book.frontMatter.status === "read")
+    .filter(({ frontMatter }) => frontMatter.status === "read")
     .sort((a, b) => b.frontMatter.finishedDate - a.frontMatter.finishedDate);
   return {
     props: {

@@ -30,12 +30,8 @@ async function generateRSS() {
   );
 
   books
-    .filter(({ frontMatter }) => !!frontMatter.finishedDate)
-    .sort(
-      (a, b) =>
-        new Date(a.frontMatter.finishedDate).valueOf() -
-        new Date(b.frontMatter.finishedDate).valueOf() // .valueOf is a TS fix
-    )
+    .filter(({ frontMatter }) => frontMatter.status === "read")
+    .sort((a, b) => b.frontMatter.finishedDate - a.frontMatter.finishedDate)
     .map(({ frontMatter, html, slug }) => {
       feed.addItem({
         title: frontMatter.title,

@@ -50,9 +50,9 @@ export default function Newsletter() {
         bit like the portal in the wardrobe in Narnia, except the wardrobe is
         your inbox and Narnia is my brain.
       </p>
-      <p className="mb-4">It's called Those Who Wander. Subscribe below.</p>
+      <p className="mb-8">It's called Those Who Wander. Subscribe below.</p>
 
-      <form onSubmit={handleSubmit} className="pt-4 pb-8">
+      <form onSubmit={handleSubmit}>
         {requestState === "IDLE" && <p className="mb-4">Enter your email</p>}
         {requestState === "LOADING" && <p className="mb-4">Loading...</p>}
         {requestState === "ERROR" && (

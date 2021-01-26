@@ -5,15 +5,15 @@ import {
   getBooksSlugs,
   getBookBySlug,
   markdownToHtml,
-  FrontMatter,
+  BookMetadata,
 } from "../../lib/books";
 
 export default function Book({
   book: { frontMatter, html },
 }: {
-  book: { html: string; frontMatter: FrontMatter };
+  book: { html: string; frontMatter: BookMetadata };
 }) {
-  const imageUrl = `https://covers.openlibrary.org/b/isbn/${frontMatter.isbn}-M.jpg`;
+  const imageUrl = `https://covers.openlibrary.org/b/isbn/${frontMatter.isbn}-M.jpg?default=false`;
   return (
     <>
       <Heading>{frontMatter.title}</Heading>

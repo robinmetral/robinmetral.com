@@ -10,7 +10,7 @@ export default function Layout({ children }: { children: ReactNode }) {
         <title>Robin Métral</title>
       </Head>
       <Nav />
-      <main className="mt-8 md:mt-16 px-4 max-w-3xl mx-auto text-lg md:text-xl">
+      <main className="py-8 px-4 md:py-16 max-w-3xl mx-auto text-lg md:text-xl">
         {children}
       </main>
     </div>

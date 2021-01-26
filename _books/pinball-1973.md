@@ -8,7 +8,5 @@ shelves:
   - fiction
   - japan
 rating: 3
-finishedDate: "2021-01-10"
+finishedDate: "2021-01-09"
 ---
-
-Murakami’s second novel, a loose sequel to _Hear the Wind Sing_.

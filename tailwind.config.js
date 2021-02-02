@@ -9,10 +9,34 @@ module.exports = {
       screens: {
         xs: "415px",
       },
+      // customizing the typography plugin
+      typography: (theme) => ({
+        lg: {
+          // we have to style the sizes directly, DEFAULT gets overridden
+          css: {
+            a: {
+              textDecoration: "underline",
+              "&:hover": {
+                color: theme("colors.yellow.400"),
+              },
+            },
+          },
+        },
+        xl: {
+          css: {
+            a: {
+              textDecoration: "underline",
+              "&:hover": {
+                color: theme("colors.yellow.400"),
+              },
+            },
+          },
+        },
+      }),
     },
   },
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")],
 };

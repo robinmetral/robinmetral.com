@@ -24,7 +24,10 @@ export default function Book({
           <li>{frontMatter.publishedYear}</li>
         </ul>
       </div>
-      <div dangerouslySetInnerHTML={{ __html: html }} />
+      <article
+        className="prose-lg md:prose-xl"
+        dangerouslySetInnerHTML={{ __html: html }}
+      />
     </>
   );
 }

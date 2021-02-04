@@ -6,12 +6,12 @@ isbn: "9780593139134"
 status: read
 shelves:
   - non-fiction
-  - biography
+  - memoir
 rating: 3
 finishedDate: "2021-02-01"
 ---
 
-[Alright, Alright, Alright](https://youtu.be/mbsv7cJsJxM?t=126) (sorry, couldn’t resist.)
+[Alright, Alright, Alright,](https://mcconaughey.medium.com/the-origin-story-of-alright-alright-alright-aeb442cf8fe7)
 
 I love biographies and I love cinema, so when I found out that Matthew McConaughey had written a memoir, I immediately added it to my reading list.
 

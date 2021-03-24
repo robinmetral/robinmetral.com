@@ -9,6 +9,7 @@
     "postbuild": "ts-node --project ./node.tsconfig.json ./scripts/generate-rss.ts"
   },
   "dependencies": {
+    "@splitbee/web": "^0.2.4",
     "@tailwindcss/typography": "^0.4.0",
     "autoprefixer": "^10.2.1",
     "gray-matter": "^4.0.2",
